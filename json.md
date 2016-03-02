@@ -150,7 +150,7 @@ JSON.stringify([undefined, function(){}, 14, true]);  //[null,null,14,true]
 
 ```
 
-###过滤
+### 过滤
 
 ####参数为数组
 ```javascript
@@ -169,6 +169,13 @@ console.log(filterRes);   // {"name":"yanglei","age":21}
 ```
 
 ####参数为函数
+&emsp;此时会传入两个参数，key和value,初始化时，key为空，value要JSON的对象，然后每个键值对也会一级一级的传入这个函数。
+
+* 如果value是number、boolean类型会调用toString()去转化value。
+* 如果value是string,直接加入。
+* 如果value是function, undefined,则忽视。
+* 如果value是object,则递归以上规则。
+
 
 ```javascript
 
@@ -182,8 +189,13 @@ var person = {
 };
 
 var filterRes = JSON.stringify(person, function(key, value) {
-	return value;
+	switch(key) {
+      case "school": return undefined;
+      default: return value;
+   }
 });
 
 console.log(filterRes);
+
+//{"name":"yanglei","age":21}
 ```
