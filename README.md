@@ -1,5 +1,6 @@
 ## javascript notes
-```console.log(i);
+```javascript
+console.log(i);
 console.log(person.age);
 
 console.log(typeof undefined);
