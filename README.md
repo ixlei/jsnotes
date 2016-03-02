@@ -1,11 +1,10 @@
 ## javascript notes
 
 `console.log(i);`
+    console.log(person.age);
 
-``console.log(person.age);
+    console.log(typeof undefined);
 
-console.log(typeof undefined);
+    for (var i = 0; i < 10; i++) {
 
-for (var i = 0; i < 10; i++) {
-
-}``
+    }
