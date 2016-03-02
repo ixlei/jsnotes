@@ -94,5 +94,41 @@ JSON.stringify(window)  //web环境下
 
 //throw error `Uncaught TypeError: Converting circular structure to JSON`
 ```
+>JSON.stringify 序列化属性的`enumerable`特性为`false`
 
+```javascript
+var err = new Error('error message');
+var jsonText = JSON.stringify(err);
+console.log(jsonText);   //{}
+```
+读取对象属性的特性
 
+```javascript
+var ownPropertyNames = Object.getOwnPropertyNames(err),
+    descriptor = null;
+
+ownPropertyNames.forEach(function(key, index, arr) {
+	descriptor = Object.getOwnPropertyDescriptor(err, item);
+	console.log(key + ' enumerable',  descriptor.enumerable);
+});
+res:
+ //stack enumerable false
+ //message enumerable false
+```
+解决方案:
+
+```javascript
+
+function stringifyError(err, filter, space) {
+    var plainObject = {};
+	Object.getOwnPropertyNames(err).forEach(function(key, index, arr) {
+       plainObject[key] = err[key];
+	});
+	return JSON.stringify(plainObject, filter, space);
+}
+```
+test:
+```javascript
+var jsonErrText = stringifyError(err);
+console.log(jsonErrText);
+```
