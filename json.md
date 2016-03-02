@@ -23,7 +23,6 @@ null          //null
 javascript中的对象
 
 ```javascript
-
 var person = {
 	name: "yanglei",
 	age: 21,
@@ -45,6 +44,47 @@ JSON中的对象表示上述对象
   }
 }
 ```
-    和javascript不同的是，JSON对象没有声明变量，同时，没有末尾的分号。值得注意的是，JSON中的每个
+&emsp;javascript不同的是，JSON对象没有声明变量，同时，没有末尾的分号。值得注意的是，JSON中的每个
 属性都必须必须加双引号，没有事错误的。
+
+###数组
+
+js中的数组
+
+```javascript
+var values = [25, null, "javascript", {type: "array"}, [666, 25]];
+```
+JSON表示上述数组
+
+```javascript
+  [25, null, "javascript", {"type": "array"}, [666, 25]]
+```
+
+##序列化和解析
+
+###系列化
+&emsp;`JSON.stringify`可以把js对象序列化为JSON字符串
+
+```javascript
+JSON.stringify(plainobject, filter, space);
+```
+* 序列化 plain Object
+
+```javascript
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  }
+};
+
+var jsonText = JSON.stringify(person);
+
+// {"name":"yanglei","age":21,"school":{"name":"DUT","address":"dalian"}}
+
+typeof jsonText    //string
+
+```
 
