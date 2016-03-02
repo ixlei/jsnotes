@@ -249,7 +249,7 @@ var jsonText = JSON.stringify(person);
 console.log(jsonText);  // "toJSON"
 ```
 
-&emap;序列化顺序
+&emsp;序列化顺序
 * 如果存在toJSON,则调用toJSON。否则返回对象。
 * 如果存在第二个参数，则调用该方法。否则返回对象本身。
 * 如果存在第三个参数，则格式化json。
