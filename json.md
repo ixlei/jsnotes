@@ -87,4 +87,12 @@ var jsonText = JSON.stringify(person);
 typeof jsonText    //string
 
 ```
+> `JSON.stringify` serialize circular structure object will throw TypeError;
+
+```javscript
+JSON.stringify(window)  //web环境下
+
+//throw error `Uncaught TypeError: Converting circular structure to JSON`
+```
+
 
