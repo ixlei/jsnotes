@@ -1,11 +1,5 @@
 ## javascript notes
+
 ```javascript
-console.log(i);
-console.log(person.age);
-
-console.log(typeof undefined);
-
-for (var i = 0; i < 10; i++) {
-
-}
+console.log('hello javascript world!');
 ```
