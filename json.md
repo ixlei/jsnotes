@@ -199,3 +199,56 @@ console.log(filterRes);
 
 //{"name":"yanglei","age":21}
 ```
+###字符串缩进
+&emsp; 用于字符串缩进和空白符，可以是数字，也可以是字符串，如果是数字，大于10的会被转化为10，字符串最长为10。
+```javascript
+
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  }
+};
+
+var jsonText = JSON.stringify(person, null, 4);
+console.log(jsonText);
+
+/*
+{
+    "name": "yanglei",
+    "age": 21,
+    "school": {
+        "name": "DUT",
+        "address": "dalian"
+    }
+}
+*/
+
+###toJSON方法
+
+返回JSON方法的数据格式
+
+```javascript
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  },
+  toJSON: function() {
+    return 'toJSON';
+  }
+};
+
+var jsonText = JSON.stringify(person);
+
+console.log(jsonText);  // "toJSON"
+```
+
+&emap;序列化顺序
+* 如果存在toJSON,则调用toJSON。否则返回对象。
+* 如果存在第二个参数，则调用该方法。否则返回对象本身。
+* 如果存在第三个参数，则格式化json。
