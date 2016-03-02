@@ -89,12 +89,20 @@ typeof jsonText    //string
 ```
 > `JSON.stringify` serialize circular structure object will throw TypeError;
 
+* 非数组对象的属性不能保证以特定的顺序出现在序列化后的字符串中。
+* 布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值。
+*不能序列化circular structure。
+* 不可枚举的属性会被忽略。
+* undefined、任意的函数以及 symbol 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成 null（出现在数组中时）。
+* 所有以 symbol 为属性键的属性都会被完全忽略掉，即便 replacer 参数中强制指定包含了它们。
+
+
 ```javscript
 JSON.stringify(window)  //web环境下
 
 //throw error `Uncaught TypeError: Converting circular structure to JSON`
 ```
->JSON.stringify 序列化属性的`enumerable`特性为`false`
+>`JSON.stringify` 会忽略属性为`non-enumerable`；
 
 ```javascript
 var err = new Error('error message');
@@ -131,4 +139,51 @@ test:
 ```javascript
 var jsonErrText = stringifyError(err);
 console.log(jsonErrText);
+```
+>`undefined function` stringify
+
+```javascript
+JSON.stringify({key: undefined, f: function() {}});  //{}
+//ignore value is undefined and function
+
+JSON.stringify([undefined, function(){}, 14, true]);  //[null,null,14,true]
+
+```
+
+###过滤
+
+####参数为数组
+```javascript
+
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  }
+};
+
+var filterRes = JSON.stringify(person, ["name", "age"]);
+console.log(filterRes);   // {"name":"yanglei","age":21}  
+```
+
+####参数为函数
+
+```javascript
+
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  }
+};
+
+var filterRes = JSON.stringify(person, function(key, value) {
+	return value;
+});
+
+console.log(filterRes);
 ```
