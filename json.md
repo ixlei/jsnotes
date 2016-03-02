@@ -18,3 +18,33 @@ true          //boolean
 null          //null
 ```
 
+### 对象
+
+javascript中的对象
+
+```javascript
+
+var person = {
+	name: "yanglei",
+	age: 21,
+	school: {
+       name: "DUT",
+       address: "dalian"
+  }
+};
+```
+JSON中的对象表示上述对象
+
+```javascript
+{
+  "name": "yanglei",
+  "age": 21,
+  "school": {
+     "name": "DUT",
+     "address": "dalian"
+  }
+}
+
+  和javascript不同的是，JSON对象没有声明变量，同时，没有末尾的分号
+。值得注意的是，JSON中的每个属性都必须必须加双引号，没有事错误的。
+
