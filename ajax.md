@@ -85,4 +85,10 @@ function request(o) {
 }
 
 ```
+>xhr.onreadystatechange的callback没有使用this代替xhr,部分浏览错误.
+
+`xhr.abort()`在接受响应之前停止请求。
+
+### `xhr.setRequestHeader("myHeader", "myValue");`
+>setRequestHeader不建议设置http的请求头,在调用时必须在open之后，send之前。
 
