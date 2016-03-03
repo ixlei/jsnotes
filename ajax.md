@@ -43,22 +43,22 @@ function createXHR() {
 
 `xhr.send(data)`表示请求主体发送数据，如果不发送，则必须指定为null。
 
-&emsp; ###响应
+###响应
 * responseText作为响应的文本。
 * responseXML 响应类型为"text/xml"或"application/xml",这个属性将保存响应数据的XML DOM文档。
 * status 保存响应的状态码。
 * statusText http状态说明。
 
-&emap; ###响应阶段
+###响应阶段
 * 同步发送。
 
 * 异步请求
 
-0: 未初始化。尚未调用open方法。
-1: 启动。调用open方法，但没有调用send。
-2: 发送数据。调用send,但没有接到响应数据。
-3: 接收。接收部分数据，但没有发送完。
-4: 完成。接收全部数据。客户端可以使用
+0.: 未初始化。尚未调用open方法。
+1.: 启动。调用open方法，但没有调用send。
+2.: 发送数据。调用send,但没有接到响应数据。
+3.: 接收。接收部分数据，但没有发送完。
+4.: 完成。接收全部数据。客户端可以使用
 
 ```javascript
 
