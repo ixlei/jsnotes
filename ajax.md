@@ -92,3 +92,42 @@ function request(o) {
 ### `xhr.setRequestHeader("myHeader", "myValue");`
 >setRequestHeader不建议设置http的请求头,在调用时必须在open之后，send之前。
 
+###XMLHttpRequest2
+
+#####FormData序列化表单和创建和表单一样的数据
+
+```javascript
+var formdata = new FormData();
+formdata.append("name", "yanglei");
+```
+
+```javascript
+var form = document.forms.form;
+var formdata = new FormData(form);
+```
+
+###跨域技术
+* 图像ping
+```javascript
+
+var img = new Image();
+img.onload = img.onerror = function() {
+  console.log('Done');
+};
+
+img.url = url;
+
+```
+
+* JSONP
+
+```javascript
+function handleResponse(response) {
+	//todo
+}
+
+var script = document.createElement('script');
+script.src = url + '?callback=' + handleResponse;
+document.body.appendChild(script);
+
+```
