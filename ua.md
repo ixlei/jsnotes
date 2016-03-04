@@ -63,7 +63,7 @@ var client = function() {
       case /rv:([^\)]+)\) Gecko\/(\d{8})/.test(ua):
         engine.ver = RegExp.$1;
     	engine.gecko = parseFloat(engine.ver);
-    	if(/FireFox\/(\S+)/.test(ua)) {
+    	if(/Firefox\/(\S+)/.test(ua)) {
     		browser.ver = RegExp.$1;
     		browser.firefox = parseFloat(browser.ver);
     	}
