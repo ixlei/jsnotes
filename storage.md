@@ -168,5 +168,93 @@ var subCookieUtil = {
   }
 }
 ```
+&emsp;浏览器在cookie的数量和大小上都有限制，每个cookie最大4096B,至于数量多少，每个浏览器的限制不同，FirFox每个域名下最多50个，safari和chrome没有规定，ie7最多50个。
+
+>cookie可以用于不同tab之间通信。
+
+##web的存储机制
+
+web storage的出现的理由:
+* cookie有限制。
+* 提供一种存储大量可以跨会话的存储机制。
+
+###storage类型
+
+* `clear()`:删除所有值，firfox没有出现。
+* `getItem(name)`: 根据指定name访问数据。
+* `key(index)`: 获得index处的key。
+* `removeItem(name)`: 删除name的指定的键值对。
+* `setItem(name, value)`:设置值。
+
+&emsp; getItem(name)、removeItem(name)、setItem(name, value)均可直接调用，或者通过storage对象调用。也可以像对象一样设置值和delete值。
+
+
+###sessionStorage对象
+
+`sessionStorage`对象存储的数据保持到浏览器关闭，可以跨页面访问，当然，sessionStorage就是storage的一个实例。
+
+```javascript
+sessionStorage.setItem('name', 'ixlei');
+sessionStorage.age = 21;
+
+sessionStorage.getItem('name'); //ixlei
+
+for(var key in sessionStorage) {
+  var value = sessionStorage.getItem(key);
+  //todo
+}
+
+sessionStorage.removeItem('age');
+
+delete sessionStorage.age;
+
+```
+
+###globalStorage 对象
+globalStorage对象用于跨域会话访问数据，但有访问限制。使用globalStorage时，首先得指定那些域可以访问数据。
+
+```javascript
+globalStorage['github.com'].name = 'ixlei';
+
+var name = globalStorage['github.com'].name;
+
+```
+>globalStorage['github.com']是storage的实例。所有子域也可以访问这个数据。
+globalStorage访问首同源策略限制。
+
+
+###localStorage对象
+
+
+###storage事件
+
+```javascript
+
+document.addEventListener('storage', function(e) {
+	//e.doman,e.key,e.newValue, e.oldValue;
+}, false);
+
+
+```
+##indexDB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
