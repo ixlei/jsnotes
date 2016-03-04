@@ -86,7 +86,8 @@ var client = function() {
     }
 
     return {
-    	engine: engine
+      engine: engine,
+      browser: browser
     };
     
 }(); 
