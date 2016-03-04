@@ -4,7 +4,7 @@
 
 * `navigator.onLine`
 
-&emsp; navigator.onLine为true时，在线状态，反之为离线。
+&emsp; `navigator.onLine`为`true`时，在线状态，反之为离线。
 
 * 'online 和 offline'事件。当在线状态改变时就会触发这两个事件。在window上触发。
 
@@ -49,10 +49,10 @@ name=value;expires=expires_time;path=domain_path;domain=domain_name;secure
 ```javascript
 
 var cookieUtil = {
-  getCookie: function(name, _cookie) {
+  getCookie: function(name) {
      name = encodeURIComponent(name);
      var cookieValue = null,
-         cookie = _cookie,
+         cookie = document.cookie,
          itemArr = null,
          itemOb = {},
          key = '',
@@ -94,10 +94,78 @@ var cookieUtil = {
     }
 
     document.cookie = item.join('; ');
-    console.log(item.join('; '));
   }
 };
 
+####子cookie
+&emsp;由于cookie数量有限，可以利用子cookie解决。形如`name=name1=value1&name2=value2`。
+
+```javascript
+var subCookieUtil = {
+  get: function(name, subName) {
+    var res = this.getAll(name)[subName];
+    return typeof res === 'undefined' ? null : res;
+  },
+  getAll: function(name) {
+    name = encodeURIComponent(name);
+    var cookie = document.cookie,
+        itemArr = cookie.split(';'),
+        itemOb = {},
+        item = '',
+        key = '',
+        value = '';
+        subArr = [],
+        subCookie = {};
+
+    itemArr.forEach(function(data) {
+        item = data.split('=');
+        key = typeof item[0] === 'string' ? item[0].trim() : item[0];
+        item[key] = item[1];
+    });
+
+    if(itemOb[name]) {
+      value = decodeURIComponent(itemOb[name]);
+      subArr = value.split('&');
+      for(var i = 0, ii = subArr.length; i < ii; i++) {
+      	value = subArr[i].split('=');
+      	subCookie[value[0]] = value[1];
+      }
+    }
+    return subCookie;
+  },
+
+  setAll: function(name, subCookies, expires, path, domain, secure) {
+    var item = [],
+        subItem = [],
+        cookie = '';
+
+    for(var key in subCookies) {
+       if(key.length > 0 && subCookies.hasOwnProperty(key)) {
+         subItem.push(key + '=' + subCookies[key]);
+       }
+    }
+    cookie = encodeURIComponent(name) + '=' + encodeURIComponent(subItem.join('&'));
+    item.push(cookie);
+
+    if(expires instanceof Date) {
+      item.push('expires=' + expires.toGMTString());
+    }
+
+    if(path) {
+      item.push('path=' + path);
+    }
+
+    if(domain) {
+      item.push('domain=' + domain);
+    }
+
+    if(secure) {
+       item.push('secure');
+    }
+
+    document.cookie = item.join('; ');
+  }
+}
 
 
 
