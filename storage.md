@@ -97,8 +97,8 @@ var cookieUtil = {
   }
 };
 
-####子cookie
-&emsp;由于cookie数量有限，可以利用子cookie解决。形如`name=name1=value1&name2=value2`。
+### 子cookie
+&emsp; 由于cookie数量有限，可以利用子cookie解决。形如`name=name1=value1&name2=value2`。
 
 ```javascript
 var subCookieUtil = {
@@ -166,6 +166,6 @@ var subCookieUtil = {
     document.cookie = item.join('; ');
   }
 }
-
+```
 
 
