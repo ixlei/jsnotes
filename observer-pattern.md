@@ -49,7 +49,7 @@ class Pubsub {
 }
 ```
 
-```javasript
+```javascript
 let ps = new Pubsub();
 ps.on('event', (state) => {
 	 console.log(state);          //hello world!
