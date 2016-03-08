@@ -10,8 +10,8 @@
 'use strict';
 class Pubsub {
     constructor() {
-      this.topicList = new Map();
-      this.sticky = new Map();
+      this.topicList = new Map();    //观察者列表
+      this.sticky = new Map();        //先发布，后订阅
     }
 
    on(topic, listener) {
@@ -48,3 +48,21 @@ class Pubsub {
  }
 }
 ```
+
+```javasript
+let ps = new Pubsub();
+ps.on('event', (state) => {
+	 console.log(state);          //hello world!
+});
+
+ps.trigger('event', 'hello world!');
+
+
+ps.trigger('pubsub', 'sticky event');
+ps.on('pubsub', (state) => {
+	 console.log(state);                 //sticky event
+});
+
+```
+
+>观察者模式也叫发布订阅模式，当然还有中介者模式，中介者模式就是观察者模式共享一个目标，主要实现各组件之间通信的中心联络点。它们都是为了实现各模块之间解耦。当然发布订阅模式不一定要先订阅，后发布。可能后订阅，先发布。
