@@ -224,8 +224,14 @@ globalStorage访问首同源策略限制。
 
 
 ###localStorage对象
+与`globalStorage`对象不同，不能给`localStorage`指定任何访问规则，要访问同一个`localStorage`对象，必须来自同一个域名（子域名无效），端口和同一种协议。相当于`globalStorage[location.host]`。
 
+```javascript
 
+localStorage.setItem('name', 'yanglei');
+localStorage.getItem('name');   //yanglei
+localStorage.name   //yanglei
+```
 ###storage事件
 
 ```javascript
