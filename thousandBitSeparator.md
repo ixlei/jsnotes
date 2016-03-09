@@ -28,16 +28,17 @@ function thoundBitSeparator(num) {
 
 ```
 ```javascript
-thoundBitSeparator(-12514752232.21)   //-12,514,752,232.21
-thoundBitSeparator(10)                //10
+thoundBitSeparator(-12514752232.21);   //-12,514,752,232.21
+thoundBitSeparator(10);              //10
 
 ```
 
 ```javascript
 function thoundBitSeparator(num) {
   'use strict';
+  let regExp = /(?=(?!^)((\d{3})+)$)/g;
   return num && num.toString().replace(/^\d+/, (num) => {
-    return num.replace(/(?=(\d{3})+$)/g, ',');
+    return num.replace(regExp, ',');
   });
 }
 
