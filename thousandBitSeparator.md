@@ -56,7 +56,11 @@ function thoundBitSeparator(num) {
          : strNum.length + 1;
        thoundBit.unshift(strNum.substring(index, lastIndex));
     }
-    return `${(startIndex == 1 ? String(num).charAt(0) : '')}${thoundBit.join(',')}${endIndex > -1 ? String(num).substring(endIndex) : ''}`;
+
+    let str1 = startIndex == 1 ? String(num).charAt(0) : '',
+        str2 = thoundBit.join(','),
+        str3 = endIndex > -1 ? String(num).substring(endIndex) : '';
+    return `${str1}${str2}${str3}`;
 }
 ```
 
