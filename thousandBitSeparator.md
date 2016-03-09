@@ -9,6 +9,7 @@ function getType(num) {
 }
 
 function thoundBitSeparator(num) {
+  'use strict';
   let type = getType(num);
   if(type !== '[object Number]') {
     throw new TypeError(`${type} is not number`);
@@ -30,4 +31,31 @@ function thoundBitSeparator(num) {
 thoundBitSeparator(-12514752232.21)   //-12,514,752,232.21
 thoundBitSeparator(10)                //10
 
+```
+
+```javascript
+function thoundBitSeparator(num) {
+  'use strict';
+  let type = getType(num);
+  if(type !== '[object Number]') {
+    throw new TypeError(`${type} is not number`);
+  }
+
+  let strNum = String(num),
+      startIndex = /^[+-]/.test(strNum) ? 1 : 0,
+      dotIndex = strNum.indexOf('.'),
+      endIndex = dotIndex !== -1 ? dotIndex : strNum.length,
+      thoundBit = [],
+      index = endIndex,
+      lastIndex = -1;
+
+    while(index > startIndex) {
+       index -= 3;
+       lastIndex = thoundBit.length !== 0 
+         ? strNum.indexOf(thoundBit[0]) 
+         : strNum.length + 1;
+       thoundBit.unshift(strNum.substring(index, lastIndex));
+    }
+    return `${(startIndex == 1 ? String(num).charAt(0) : '')}${thoundBit.join(',')}${endIndex > -1 ? String(num).substring(endIndex) : ''}`;
+}
 ```
