@@ -59,3 +59,9 @@ function thoundBitSeparator(num) {
     return `${(startIndex == 1 ? String(num).charAt(0) : '')}${thoundBit.join(',')}${endIndex > -1 ? String(num).substring(endIndex) : ''}`;
 }
 ```
+
+```javascript
+thoundBitSeparator(-12514752232.21)   //-12,514,752,232.21
+thoundBitSeparator(10)                //10
+
+```
