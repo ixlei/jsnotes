@@ -36,6 +36,16 @@ thoundBitSeparator(10)                //10
 ```javascript
 function thoundBitSeparator(num) {
   'use strict';
+  return num && num.toString().replace(/^\d+/, (num) => {
+    return num.replace(/(?=(\d{3})+$)/g, ',');
+  });
+}
+
+```
+
+```javascript
+function thoundBitSeparator(num) {
+  'use strict';
   let type = getType(num);
   if(type !== '[object Number]') {
     throw new TypeError(`${type} is not number`);
@@ -69,3 +79,4 @@ thoundBitSeparator(-12514752232.21)   //-12,514,752,232.21
 thoundBitSeparator(10)                //10
 
 ```
+
