@@ -76,8 +76,8 @@ function thoundBitSeparator(num) {
 ```
 
 ```javascript
-thoundBitSeparator(-12514752232.21)   //-12,514,752,232.21
-thoundBitSeparator(10)                //10
+thoundBitSeparator(-12514752232.21);   //-12,514,752,232.21
+thoundBitSeparator(10);                //10
 
 ```
 
