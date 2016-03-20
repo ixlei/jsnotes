@@ -51,9 +51,13 @@
 ##参考链接
 
 * [discussion-on-web-caching](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)
+
 * [Web缓存的工作原理](http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/#prettyPhoto)
 
 * [浏览器缓存](http://www.cnblogs.com/lyzg/p/5125934.html)
+
+* [浏览器允许的并发请求资源数](https://www.zhihu.com/question/20474326)
+
 * [翻译：web制作、开发人员需知的Web缓存知识](http://www.zhangxinxu.com/wordpress/2013/05/caching-tutorial-for-web-authors-and-webmasters/)
 
 * [no-cache&no-store](http://stackoverflow.com/questions/866822/why-both-no-cache-and-no-store-should-be-used-in-http-response)
