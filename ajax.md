@@ -157,7 +157,38 @@ document.body.appendChild(script);
 ```
 
 * `window.name'实现跨域，此技术核心是url改变，但`window.name`不变。
+  举个栗子，http://a.com/a.html和http://b.com/b.html通信。
+  在a.html中;
+  ```javascript
+  "use strict";
+  var ifr = document.createElement('iframe');
+  var state = 0, data;
+  ifr.style.display = 'none';
+  ifr.onload = function() {
+    if(state == 0) {
+      state = 1;
+      ifr.contentWindow.location = 'http://a.com/proxy.html';
+    } else {
+      data = ifr.contentWindow.name;
+      alter(data);
+    }
+  }
+  ```
 
+  在b.html中；
+  ```javascript
+  "use strict";
+  <script type="text/javascript">
+    window.name = data    //data;
+  </script>
+  ```
+  最后销毁这个iframe,确保安全。
+  ```javascript
+  "use strict";
+  ifr.contentWindow.innerHTML = '';
+  ifr.contentWindow.close();
+  document.body.removeChild(ifr);
+  ```
 * `postMessage'实现跨域。
 
 * `iframe`和 `location.hash`实现跨域， 此技术利用`location.hash`传递值，有限制。
