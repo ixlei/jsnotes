@@ -12,7 +12,7 @@
 ###简单值
 
 ```javascript
-'javascript'  //string
+"javascript"  //string
 true          //boolean
 5             //number
 null          //null

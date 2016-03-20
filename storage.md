@@ -97,6 +97,17 @@ var cookieUtil = {
   }
 };
 
+
+ /*function getCookie(name, cookie) {
+  name = encodeURIComponent(name);
+  var regExp = /name=([^;\b\s]+)/;
+      //cookie = document.cookie;
+  var match = regExp.exec(cookie);
+
+  return match ? decodeURIComponent(match[1]) : '';
+
+}
+*/
 ```
 ### 子cookie
 &emsp; 由于cookie数量有限，可以利用子cookie解决。形如`name=name1=value1&name2=value2`。
