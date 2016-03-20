@@ -12,3 +12,5 @@ console.log('hello javascript world!');
 * [json学习笔记](https://github.com/ixlei/jsnotes/blob/master/json.md)
 * [cookies, sessionstorage, localstorage](https://github.com/ixlei/jsnotes/blob/master/storage.md)
 * [代理检测](https://github.com/ixlei/jsnotes/blob/master/ua.md)
+* [千位分隔符的三种实现](https://github.com/ixlei/jsnotes/blob/master/thousandBitSeparator.md)
+* [设计模式之观察者模式](https://github.com/ixlei/jsnotes/blob/master/observer-pattern.md)
