@@ -242,6 +242,14 @@ document.addEventListener('storage', function(e) {
 
 
 ```
+
+>cookies,sessionstorage, localstorage的区别?
+* `cookies`最大为4k,而`sessionstorage`, `localstorage`最大为5M。
+* `cookies`可以用于前后端通信，而`sessionstorage`, `localstorage`只能用于客户端使用。
+* cookies在有效区之前都是有效的，`sessionstorage`关闭浏览器后失效，`localstorage`永久存储。
+* `cookies`没有提供像`sessionstorage`, `localstorage`一样方便的操作API。
+* `localStorage`只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份`localStorage`数据。
+* `sessionStorage`比`localStorage`更严苛一点，除了协议、主机名、端口外，还要求在同一窗口（也就是浏览器的标签页）下。
 ##indexDB
 
 
