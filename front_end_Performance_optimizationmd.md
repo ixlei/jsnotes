@@ -46,3 +46,26 @@
 * 避免使用table布局，每个元素的改变都会引起整个元素的调整。
 * 避免使用样式表达式。
 * 把css样式放置在头部。
+
+
+##参考链接
+
+* [discussion-on-web-caching](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)
+* [Web缓存的工作原理](http://www.alloyteam.com/2012/03/web-cache-2-browser-cache/#prettyPhoto)
+
+* [浏览器缓存](http://www.cnblogs.com/lyzg/p/5125934.html)
+* [翻译：web制作、开发人员需知的Web缓存知识](http://www.zhangxinxu.com/wordpress/2013/05/caching-tutorial-for-web-authors-and-webmasters/)
+
+* [no-cache&no-store](http://stackoverflow.com/questions/866822/why-both-no-cache-and-no-store-should-be-used-in-http-response)
+
+* [探讨css中repaint和reflow](http://www.cnblogs.com/shenqi0920/p/3545820.html)
+
+* [页面重绘和回流以及优化](http://blogread.cn/it/article/6900?f=sa)
+
+* [查询哪些属性会引起repaint或reflow](https://csstriggers.com/)
+
+* [如何稀释onscroll事件](http://segmentfault.com/q/1010000000707337)
+
+* [图片延迟加载](http://www.cnblogs.com/tugenhua0707/p/3515292.html)
+
+* [jquery委托设计](http://www.cnblogs.com/aaronjs/p/3447483.html)
