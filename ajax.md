@@ -173,6 +173,7 @@ document.body.appendChild(script);
       alter(data);
     }
   }
+  document.body/appendChild(ifr);
   ```
 
   在b.html中；
@@ -189,8 +190,24 @@ document.body.appendChild(script);
   ifr.contentWindow.close();
   document.body.removeChild(ifr);
   ```
-* `postMessage'实现跨域。
+* `postMessage'实现跨域。XDM夸文档消息传递。
+
+```javascript
+ "use strcit";
+ var ifr = document.getElementById('otherWindow').contentWinwow;
+ ifr.postMessage(data, url);
+ ```
+```javascript
+ "use strcit";
+ function callback(e) {
+   if(e.origin === url) { 
+      alter(e.data);
+   }
+ }
+
+ window.addEventListener('message',callback,false);
+ ``` 
 
 * `iframe`和 `location.hash`实现跨域， 此技术利用`location.hash`传递值，有限制。
 
-* flash实现跨越。
+* `flash`实现跨越。
