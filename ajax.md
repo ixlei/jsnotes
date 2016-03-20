@@ -54,6 +54,7 @@ function createXHR() {
 
 * 异步请求
 
+### xhr状态
 * 0: 未初始化。尚未调用open方法。
 * 1: 启动。调用open方法，但没有调用send。
 * 2: 发送数据。调用send,但没有接到响应数据。
