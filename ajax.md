@@ -133,6 +133,15 @@ document.body.appendChild(script);
 
 ```
 
+&emsp; 判断是否加载完毕。
+```javascript
+ script.onload = script.onreadystatechange = function() {
+   if(!this.readystate || this.readystate === 'loaded' || this.readystate === 'complete') {
+      handleResponse(value);
+   }
+ }
+```
+
 * `document.domain`+ `iframe`实现跨域
 &emsp; 此技术只有在主域名相同而子域名不同的状态下才行。
 
