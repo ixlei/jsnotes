@@ -142,8 +142,19 @@ document.body.appendChild(script);
  }
 ```
 
-* `document.domain`+ `iframe`实现跨域
-&emsp; 此技术只有在主域名相同而子域名不同的状态下才行。
+* `document.domain` + `iframe`实现跨域; 此技术只有在主域名相同而子域名不同的状态下才行。
+
+  举个栗子: http://xxx.a.com/a.html和http://hhh.a.com/hhh.html通信。把两个页面的`document.domain`设置为`a.com`;
+  在http://xxx.a.com/a.html页面中。
+```javascript
+  var ifr = document.createElement('iframe');
+  ifr.src = 'http://hhh.a.com/hhh.html';
+  ifr.style.display = 'none';
+  document.body.appendChild(ifr);
+  ifr.onload = function() {
+    //操作http://hhh.a.com/hhh.html页面
+  }
+```
 
 * `window.name'实现跨域，此技术核心是url改变，但`window.name`不变。
 
