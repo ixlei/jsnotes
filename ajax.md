@@ -120,7 +120,7 @@ img.url = url;
 
 ```
 
-* JSONP
+* JSONP跨域，动态脚本技术
 
 ```javascript
 function handleResponse(response) {
@@ -132,3 +132,14 @@ script.src = url + '?callback=' + handleResponse;
 document.body.appendChild(script);
 
 ```
+
+* `document.domain`+ `iframe`实现跨域
+&emsp; 此技术只有在主域名相同而子域名不同的状态下才行。
+
+* `window.name'实现跨域，此技术核心是url改变，但`window.name`不变。
+
+* `postMessage'实现跨域。
+
+* `iframe`和 `location.hash`实现跨域， 此技术利用`location.hash`传递值，有限制。
+
+* flash实现跨越。
