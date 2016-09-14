@@ -94,6 +94,10 @@ var cookieUtil = {
     }
 
     document.cookie = item.join('; ');
+  },
+  removeCookie(key, path) {
+     var d = new Date(1970, 0, 1);
+     document.cookie = key + '=; ' + d.toGMTString() + path ? '; path=' + path : '';
   }
 };
 
