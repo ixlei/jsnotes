@@ -93,16 +93,19 @@ function ajax(o) {
   if(typeof XMLHttpRequest != 'undefined') {
     xhr = new XMLHttpRequest();
   } else {
-    xhr = new ActiveXObject("Microsoft.XMLHTTP")
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
   }
   xhr.open(o.url, o.method || 'get', false);
   xhr.onreadystatechange = fucntion(res) {
     if(xhr.readystate == 4) {
       if(xhr.status == 200 || xhr.status == 304) {
         o && o.success && o.success(res)
+      } else {
+        o && o.error && o.error(res)
       }
     }
   }
+  xhr.send(o.data || o);
 }
 ```
 * 实现请求参数获取（百度－校招2面）
@@ -158,6 +161,18 @@ function getParam() {
 * react-router的实现原理（搜狐－校招1面）
 * virtualdom算法（搜狐－校招1面）
 * 前端继承实现（腾讯－内推1面）
+```javascript
+function inherits(parent, child) {
+  child.prototype = Object.create(parent.prototype);
+  child.prototype.constructor = child;
+}
+function Parent(){
+  
+}
+function Child() {
+  Parent.call(this);
+}
+```
 * 作用域链和原型链？（腾讯－内推1面）
 * 前端跨域实现（今日头条－校招1面）
 * ajax的跨域浏览器实现？页面中跨域和直接在浏览器中输入网址一样吗？https页面跨域访问http协议是否可行，反之？服务端跨域实现？cookies跨域访问？（今日头条－校招3面）
