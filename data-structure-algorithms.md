@@ -125,3 +125,15 @@ function noduplite(arr) {
   return Array.from(new Set(arr));
 }
 ```
+* 洗牌算法
+```javascript
+function shuffle(arr) {
+  let len = arr.length;
+  for(let i = len - 1; i > 0; i--) {
+    let index = parseInt(Math.random() * i, 10);
+    arr[index] = arr[index] ^ arr[i];
+    arr[i] = arr[index] ^ arr[i];
+    arr[index] = arr[index] ^ arr[i];
+  }
+}
+```
