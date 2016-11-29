@@ -28,3 +28,5 @@ console.log('hello javascript world!');
 * [js面试题](https://github.com/ixlei/jsnotes/blob/master/js-interview.md)
 
 * [计算机基础知识](https://github.com/ixlei/jsnotes/blob/master/computer-knowledge.md)
+
+* [html&css](https://github.com/ixlei/jsnotes/blob/master/html%26css.md)
