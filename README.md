@@ -24,4 +24,7 @@ console.log('hello javascript world!');
 
 ###我的校招面试经历
 * [算法&数据结构篇](https://github.com/ixlei/jsnotes/blob/master/data-structure-algorithms.md)
+
 * [js面试题](https://github.com/ixlei/jsnotes/blob/master/js-interview.md)
+
+* [计算机基础知识](https://github.com/ixlei/jsnotes/blob/master/computer-knowledge.md)
