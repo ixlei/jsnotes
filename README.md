@@ -21,3 +21,6 @@ console.log('hello javascript world!');
 * [设计模式之观察者模式](https://github.com/ixlei/jsnotes/blob/master/observer-pattern.md)
 
 * [前端性能优化](https://github.com/ixlei/jsnotes/blob/master/front_end_Performance_optimizationmd.md)
+
+###我的校招面试经历
+* [算法&数据结构篇](https://github.com/ixlei/jsnotes/blob/master/data-structure-algorithms.md)
