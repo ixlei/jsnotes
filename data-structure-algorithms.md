@@ -34,32 +34,86 @@
   }
   ```
 * 口述快排（腾讯－校招1面）
-* 手写字符串匹配（百度－校招1面）
- 朴素模式
+* 手写字符串匹配（百度－校招1面）  
+朴素模式
 ```javascript
-  function indexOf(str, subStr) {
-    for(let i = 0, ii = str.length; i < ii; ) {
-      if(str.charAt(i) === subStr.charAt(0)) {
-        let j, jj;
-        for(j = 1, jj = subStr.length; j < jj; ) {
-          if(str.charAt(i + j) !== subStr.charAt(j)) {
-            break;
-          }
-        }
-        if(j == jj) {
-          return i;
+function indexOf(str, subStr) {
+  for(let i = 0, ii = str.length; i < ii; ) {
+    if(str.charAt(i) === subStr.charAt(0)) {
+      let j, jj;
+      for(j = 1, jj = subStr.length; j < jj; ) {
+        if(str.charAt(i + j) !== subStr.charAt(j)) {
+          break;
         }
       }
-      i += 1;
+      if(j == jj) {
+        return i;
+      }
     }
-    return -1;
+    i += 1;
   }
-  ```
+  return -1;
+}
+```
 * hash算法冲突问题（百度－校招1面）
 * 手写归并排序递归和非递归（今日头条－校招1面）
+```javascript
+function merge(arr, start, mid, end) {
+  let temp = [];
+  let i = start, j = mid;
+  while(i < mid && j <= end) {
+    if(arr[i] <= arr[j]) {
+      temp.push(arr[i]);
+    } else {
+      temp.push(arr[j]);
+    }
+  }
+  if(i < mid) {
+    temp = temp.concat(arr.slice(i, mid));
+  }
+  if(j <= end) {
+    temp = temp.concat(arr.slice(j, end + 1));
+  }
+  for(let i = start, j = 0; i <= end; ) {
+    arr[i++] = temp[j++];
+  }
+}
+function mergeSort(arr, start, end) {
+  let mid;
+  if(start < end) {
+    mid = (start + end ) / 2;
+    mergeSort(arr, start, mid);
+    mergeSort(arr, mid + 1, end);
+    merge(arr, start, mid, end);
+  }
+}
+```
 * 编辑距离算法（今日头条－校招2面）
 * 手写快排实现（今日头条－校招3面）
+```javascript
+function partion(arr, start, end) {
+  let pviot = arr[start];
+  while(start < end) {
+    while(start < end && arr[end] >= pviot) {
+      end--;
+    }
+    arr[start] = arr[end];
+    while(start < end && arr[start] <= pviot) {
+      start++;
+    }
+    arr[end] = arr[start];
+  }
+  return start;
+}
 
+function quickSort(arr, start, end) {
+  if(start < end) {
+    let mid = partion(arr, start, end);
+    quickSort(arr, start, mid - 1);
+    quickSort(arr, mid + 1, end);
+  }
+}
+```
 * 网页中距离当前鼠标位置最近的链接（小米－校招3面）  
 我的想法是把把页面中的链接抽象成点，计算的时候就是```o(n)```
 
