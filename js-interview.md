@@ -18,20 +18,20 @@ function deepEqual(a, b) {
       return false;
     }
 
-    if (this.isFunction(a)) {
-      if (this.isFunction(b)) {
+    if (isFunction(a)) {
+      if (isFunction(b)) {
         return a.toString() === b.toString();
       }
       return false;
     }
 
-    if (this.isObject(a) && this.isObject(b)) {
+    if (isObject(a) && isObject(b)) {
       if (Array.isArray(a)) {
         if (Array.isArray(b)) {
           const lena = a.length;
           if (lena === b.length) {
             for (let i = 0; i < lena; i++) {
-              if (!this.deepEqual(a[i], b[i])) {
+              if (!deepEqual(a[i], b[i])) {
                 return false;
               }
             }
@@ -42,30 +42,30 @@ function deepEqual(a, b) {
         return false;
       }
 
-      if (this.isDate(a)) {
-        if (this.isDate(b)) {
+      if (isDate(a)) {
+        if (isDate(b)) {
           return a.getTime() === b.getTime();
         }
         return false;
       }
 
-      if (this.isRegExp(a)) {
-        if (this.isRegExp(b)) {
+      if (isRegExp(a)) {
+        if (isRegExp(b)) {
           return a.toString() === b.toString() && a.lastIndex === b.lastIndex;
         }
         return false;
       }
 
-      if (this.isDeepObject(a)) {
-        if (this.isDeepObject(b)) {
+      if (isDeepObject(a)) {
+        if (isDeepObject(b)) {
           for (const key in a) {
-            if (!this.deepEqual(a[key], b[key])) {
+            if (!deepEqual(a[key], b[key])) {
               return false;
             }
           }
 
           for (const key in b) {
-            if (!this.deepEqual(a[key], b[key])) {
+            if (!deepEqual(a[key], b[key])) {
               return false;
             }
           }
