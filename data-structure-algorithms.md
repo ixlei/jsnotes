@@ -36,7 +36,7 @@
 * 口述快排（腾讯－校招1面）
 * 手写字符串匹配（百度－校招1面）
  朴素模式
-  ```javascript
+```javascript
   function indexOf(str, subStr) {
     for(let i = 0, ii = str.length; i < ii; ) {
       if(str.charAt(i) === subStr.charAt(0)) {
