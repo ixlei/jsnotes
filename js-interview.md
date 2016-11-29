@@ -10,13 +10,13 @@ function Promise(cb) {
 * 手写字符串转int（搜狐－校招1面）
 ```javascript
 function hash(a) {
-  var d = /\d/;
+  const d = /\d/;
   if(d.test(a)) {
       return a;
   }
-  var regexp = [/[a|A]/, /[b|B]/, /[c|C]/, /[d|D]/, /[e|E]/, /[f|F]/];
-  var res = [10, 11, 12, 13, 14, 15];
-  for(var i = 0; i < 5; i++) {
+  const regexp = [/[a|A]/, /[b|B]/, /[c|C]/, /[d|D]/, /[e|E]/, /[f|F]/];
+  const res = [10, 11, 12, 13, 14, 15];
+  for(let i = 0; i < 5; i++) {
      if(regexp[i].test(a)) {
          return res[i];
      }
@@ -26,18 +26,18 @@ function hash(a) {
 
 function atoi(str) {
     str = str.trim();
-    var regexp = /^([+-])?(0x([0-9a-fA-F]+)*|(\d+))/;
-    var temp = regexp.exec(str);
+    const regexp = /^([+-])?(0x([0-9a-fA-F]+)*|(\d+))/;
+    let temp = regexp.exec(str);
     if(temp === null) {
        return 0;
     }
-    var res = 0, 
+    let res = 0, 
         minVal = Number.MIN_VALUE, 
         maxVal = Number.MAX_VALUE,
         isPositveNum = temp[1] !== '-',
         isTenDigit = temp[4] !== undefined;
-    var digit = isTenDigit ? temp[4] : temp[3];
-    for(var i = 0, ii = digit.length; i < ii; i++) {
+    let digit = isTenDigit ? temp[4] : temp[3];
+    for(let i = 0, ii = digit.length; i < ii; i++) {
         res *= 10;
         if(isTenDigit) {
            res += digit.charAt(i) * 1;
