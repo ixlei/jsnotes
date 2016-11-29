@@ -35,7 +35,7 @@ function atoi(str) {
         if(temp[4] !== undefined) {
            res += digit.charAt(i) * 1;
          } else {
-           res += hash(digit.charAt(j)) * Math.pow(16, jj - j - 1);
+           res += hash(digit.charAt(i)) * Math.pow(16, ii - i - 1);
          }
          if((!isPositveNum && -res <= minVal) 
          || (isPositveNum && res >= maxVal)) {
