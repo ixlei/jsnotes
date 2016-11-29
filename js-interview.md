@@ -32,7 +32,7 @@ function atoi(str) {
     var digit = isTenDigit ? temp[4] : temp[3];
     for(var i = 0, ii = digit.length; i < ii; i++) {
         res *= 10;
-        if(temp[4] !== undefined) {
+        if(isTenDigit) {
            res += digit.charAt(i) * 1;
          } else {
            res += hash(digit.charAt(i)) * Math.pow(16, ii - i - 1);
