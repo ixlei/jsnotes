@@ -39,11 +39,11 @@ function atoi(str) {
          }
          if((!isPositveNum && -res <= minVal) 
          || (isPositveNum && res >= maxVal)) {
-             return temp[1] === '-' ? minVal : maxVal;
+             return !isPositveNum ? minVal : maxVal;
          }
      }
     return !isPositveNum ? -res : res;
-};
+}
 ```
 
 * 利用insertBefore实现insertAfter（美团－实习1面）
@@ -157,9 +157,6 @@ function ajax(o) {
 ```javascript
 function getParam() {
   let query = location.search.substring(1);
-  if(!query) {
-    return {};
-  }
   query = encodeURIComponent(query);
   let regexp = /([^&=]+)(=([^=&]+))*/g;
   let temp, res = {};
