@@ -2,6 +2,15 @@
 * 手写Promise实现 （搜狐－校招1面）
 * 手写字符串转int（搜狐－校招1面）
 * 利用insertBefore实现insertAfter（美团－实习1面）
+```javascript
+function insertAfter(ele, newEle) {
+  let parentNode = ele && ele.parentNode;
+  if(!parentNode) {
+    return;
+  }
+  parentNode.insertBefore(newEle, ele.nextSibling);
+}
+```
 * 实现deepEqual (美团－实习2面)
 ```javascript
 function deepEqual(a, b) {
@@ -78,7 +87,40 @@ function deepEqual(a, b) {
   }
 ```
 * 实现ajax （腾讯－校招1面）
+```javascript
+function ajax(o) {
+  let xhr;
+  if(typeof XMLHttpRequest != 'undefined') {
+    xhr = new XMLHttpRequest();
+  } else {
+    xhr = new ActiveXObject("Microsoft.XMLHTTP")
+  }
+  xhr.open(o.url, o.method || 'get', false);
+  xhr.onreadystatechange = fucntion(res) {
+    if(xhr.readystate == 4) {
+      if(xhr.status == 200 || xhr.status == 304) {
+        o && o.success && o.success(res)
+      }
+    }
+  }
+}
+```
 * 实现请求参数获取（百度－校招2面）
+```javascript
+function getParam() {
+  let query = location.search.substring(1);
+  if(!query) {
+    return {};
+  }
+  query = encodeURIComponent(query);
+  let regexp = /([^&=]+)(=([^=&]+))*/g;
+  let temp, res = {};
+  while(temp = regexp.exec(query)) {
+    res[temp[1]] = temp[3];
+  }
+  return res;
+}
+```
 * 无限滑屏滚动实现（百度－校招2面）
 * 使用react遇到的问题？（美团－实习2面&百度－校招2面）
 * 手写实现ajax跨域（百度－校招1面）
