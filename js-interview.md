@@ -3,6 +3,80 @@
 * 手写字符串转int（搜狐－校招1面）
 * 利用insertBefore实现insertAfter（美团－实习1面）
 * 实现deepEqual (美团－实习2面)
+```javascript
+function deepEqual(a, b) {
+    if (a === b) {
+      return true;
+    }
+    
+    //if a = NaN, a !== a is true
+    if(a !== a && b !== b) {
+      return true;
+    }
+
+    if (a === null || b === null) {
+      return false;
+    }
+
+    if (this.isFunction(a)) {
+      if (this.isFunction(b)) {
+        return a.toString() === b.toString();
+      }
+      return false;
+    }
+
+    if (this.isObject(a) && this.isObject(b)) {
+      if (Array.isArray(a)) {
+        if (Array.isArray(b)) {
+          const lena = a.length;
+          if (lena === b.length) {
+            for (let i = 0; i < lena; i++) {
+              if (!this.deepEqual(a[i], b[i])) {
+                return false;
+              }
+            }
+            return true;
+          }
+          return false;
+        }
+        return false;
+      }
+
+      if (this.isDate(a)) {
+        if (this.isDate(b)) {
+          return a.getTime() === b.getTime();
+        }
+        return false;
+      }
+
+      if (this.isRegExp(a)) {
+        if (this.isRegExp(b)) {
+          return a.toString() === b.toString() && a.lastIndex === b.lastIndex;
+        }
+        return false;
+      }
+
+      if (this.isDeepObject(a)) {
+        if (this.isDeepObject(b)) {
+          for (const key in a) {
+            if (!this.deepEqual(a[key], b[key])) {
+              return false;
+            }
+          }
+
+          for (const key in b) {
+            if (!this.deepEqual(a[key], b[key])) {
+              return false;
+            }
+          }
+          return true;
+        }
+        return false;
+      }
+    }
+    return false;
+  }
+```
 * 实现ajax （腾讯－校招1面）
 * 实现请求参数获取（百度－校招2面）
 * 无限滑屏滚动实现（百度－校招2面）
@@ -63,7 +137,7 @@
 * 下面输出哪些数字
 ```javascript
 if([]){ 
-console.log(1)
+  console.log(1)
 }
 if({}) {
   console.log(2)
