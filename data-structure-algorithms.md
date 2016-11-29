@@ -4,10 +4,57 @@
 * hash算法种类？（腾讯－内推2面）
 * 你知道的排序算法（腾讯－内推2面）
 * 排序算法比较纬度？（腾讯－内推2面）
+
 * 10G大小的qq号码（有重复），2G内存的电脑。排序按照qq号码次数由多到少输出。（腾讯－内推1面）
+  利用hash算法hash到文件中，统计次数，然后多路归并
+
 * 手写二叉树的后序非递归遍历（腾讯－校招1面）
+  这里写出来的时候，面试官不认同，后来和他讲明白了
+  ```javascript
+  function postOrder(root) {
+    if(!root) {
+      return;
+    }
+    let stack = [];
+    let ptr = root, pre;
+    while(ptr && ptr.left != null) {
+      stack.push(ptr);
+      ptr = ptr.left;
+    }
+    while(ptr.right == null || ptr.right == pre) {
+      visit(ptr);
+      pre = ptr;
+      if(stack.length == 0) {
+        return;
+      }
+      ptr = stack.shift();
+    }
+    stack.push(ptr);
+    ptr = ptr.right;
+  }
+  ```
 * 口述快排（腾讯－校招1面）
 * 手写字符串匹配（百度－校招1面）
+ 朴素模式
+  ```javascript
+  function indexOf(str, subStr) {
+    for(let i = 0, ii = str.length; i < ii; ) {
+      if(str.charAt(i) === subStr.charAt(0)) {
+        let j, jj;
+        for(j = 1, jj = subStr.length; j < jj; ) {
+          if(str.charAt(i + j) !== subStr.charAt(j)) {
+            break;
+          }
+        }
+        if(j == jj) {
+          return i;
+        }
+      }
+      i += 1;
+    }
+    return -1;
+  }
+  ```
 * hash算法冲突问题（百度－校招1面）
 * 手写归并排序递归和非递归（今日头条－校招1面）
 * 编辑距离算法（今日头条－校招2面）

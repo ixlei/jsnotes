@@ -105,7 +105,7 @@ function ajax(o) {
       }
     }
   }
-  xhr.send(o.data || o);
+  xhr.send(o.data || '');
 }
 ```
 * 实现请求参数获取（百度－校招2面）
@@ -167,7 +167,7 @@ function inherits(parent, child) {
   child.prototype.constructor = child;
 }
 function Parent(){
-  
+
 }
 function Child() {
   Parent.call(this);
