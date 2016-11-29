@@ -37,12 +37,14 @@ function atoi(str) {
         isPositveNum = temp[1] !== '-',
         isTenDigit = temp[4] !== undefined;
     let digit = isTenDigit ? temp[4] : temp[3];
+    let ordinal = isTenDigit ? 1 : 1 << ((digit.length - 1) << 2);
     for(let i = 0, ii = digit.length; i < ii; i++) {
         res *= 10;
         if(isTenDigit) {
-           res += digit.charAt(i) * 1;
+           res += digit.charAt(i) * ordinal;
          } else {
-           res += hash(digit.charAt(i)) * Math.pow(16, ii - i - 1);
+           res += hash(digit.charAt(i)) * ordinal;
+           ordinal = ordinal >> 4;
          }
          if((!isPositveNum && -res <= minVal) 
          || (isPositveNum && res >= maxVal)) {
