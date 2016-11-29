@@ -130,6 +130,19 @@ function getParam() {
 *  == 和 === 的区别（百度－校招1面）
 *  apply、call、bind以及this的考察。（百度－校招2面）
 *  去除抖动（百度－校招2面）
+```javascript
+let debounce = {
+  timeout: null,
+  nodebounce(cb) {
+    if(!timeout) {
+      timeout = setTimeout(cb, 350);
+    } else {
+      clearTimeout(timeout);
+      timeout = setTimeout(cb, 350);
+    }
+  }
+}
+```
 *  优雅的防止ajax的缓存（百度－校招2面）
 *  js实现面向对象（百度－校招1面）
 *  前端异步通信方式（美团－实习1面）
@@ -143,6 +156,7 @@ function getParam() {
 *  你使用的模版引擎有哪些？（阿里－实习1面）
 *  你是怎样调试nodejs代码的？（阿里－实习1面）
 *  讲一讲事件代理（阿里－实习1面）
+*  你有读过jquery源码吗？（阿里－实习1面）
 *  复杂表单事件绑定（阿里－实习2面）
 *  redux中store的api（阿里－实习2面）
 *  react中state和props的区别和用法？（阿里－实习2面&今日头条－校招3面）
