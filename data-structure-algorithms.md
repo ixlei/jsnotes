@@ -17,20 +17,22 @@
     }
     let stack = [];
     let ptr = root, pre;
-    while(ptr && ptr.left != null) {
-      stack.push(ptr);
-      ptr = ptr.left;
-    }
-    while(ptr.right == null || ptr.right == pre) {
-      visit(ptr);
-      pre = ptr;
-      if(stack.length == 0) {
-        return;
+    while(ptr) {
+      while(ptr && ptr.left != null) {
+        stack.push(ptr);
+        ptr = ptr.left;
       }
-      ptr = stack.shift();
+      while(ptr.right == null || ptr.right == pre) {
+        visit(ptr);
+        pre = ptr;
+        if(stack.length == 0) {
+          return;
+        }
+        ptr = stack.shift();
+      }
+      stack.push(ptr);
+      ptr = ptr.right;
     }
-    stack.push(ptr);
-    ptr = ptr.right;
   }
   ```
 * 口述快排（腾讯－校招1面）

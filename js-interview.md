@@ -1,5 +1,12 @@
 ## js篇
 * 手写Promise实现 （搜狐－校招1面）
+```javascript
+function Promise(cb) {
+  this.state = 0;
+  this.processFunc = [];
+  this.mutex = false;
+}
+```
 * 手写字符串转int（搜狐－校招1面）
 ```javascript
 function hash(a) {
@@ -176,16 +183,14 @@ function getParam() {
 let debounce = {
   timeout: null,
   nodebounce(cb) {
-    if(!timeout) {
-      timeout = setTimeout(cb, 350);
-    } else {
+    if(timeout) {
       clearTimeout(timeout);
-      timeout = setTimeout(cb, 350);
-    }
+    } 
+    timeout = setTimeout(cb, 350);
   }
 }
 ```
-*  优雅的防止ajax的缓存（百度－校招2面）
+*  优雅的防止ajax的缓存（百度－校招1面）
 *  js实现面向对象（百度－校招1面）
 *  前端异步通信方式（美团－实习1面）
 *  讲一讲fetch （今日头条－校招1面）
