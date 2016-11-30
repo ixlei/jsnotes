@@ -1,12 +1,5 @@
 ## js篇
 * 手写Promise实现 （搜狐－校招1面）
-```javascript
-function Promise(cb) {
-  this.state = 0;
-  this.processFunc = [];
-  this.mutex = false;
-}
-```
 * 手写字符串转int（搜狐－校招1面）
 ```javascript
 function hash(a) {
