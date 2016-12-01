@@ -23,6 +23,8 @@ console.log('hello javascript world!');
 * [前端性能优化](https://github.com/ixlei/jsnotes/blob/master/front_end_Performance_optimizationmd.md)
 
 ###我的校招面试经历
+* [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
+
 * [算法&数据结构篇](https://github.com/ixlei/jsnotes/blob/master/data-structure-algorithms.md)
 
 * [js篇](https://github.com/ixlei/jsnotes/blob/master/js-interview.md)
