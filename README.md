@@ -4,9 +4,9 @@
 console.log('hello javascript world!');
 ```
 
-##目录
+## 目录
 
-###js序列
+### js序列
 
 * [ajax、跨域技术](https://github.com/ixlei/jsnotes/blob/master/ajax.md)
 
@@ -22,7 +22,7 @@ console.log('hello javascript world!');
 
 * [前端性能优化](https://github.com/ixlei/jsnotes/blob/master/front_end_Performance_optimizationmd.md)
 
-###我的校招面试经历
+### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
 
 * [算法&数据结构篇](https://github.com/ixlei/jsnotes/blob/master/data-structure-algorithms.md)
