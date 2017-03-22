@@ -14,5 +14,8 @@ element > * {
 
 ### `pointer-events`
 
+### 高清屏下的`border-width:0.5px` 
+
+
 
    
