@@ -10,7 +10,9 @@ element > * {
     -webkit-transform: translateZ(0px);
 }
 ```  
-### 不是`flex`是`-webkit-box`
+### 不是`flex`是`-webkit-box`  
+
+### `pointer-events`
 
 
    
