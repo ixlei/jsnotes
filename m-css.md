@@ -17,6 +17,33 @@ element > * {
   display: flex;
   display: -webkit-box;
 }
+
+@mixin flex-direction-row {
+  flex-direction: row;
+  -webkit-flex-direction: horizontal;
+}
+
+
+@mixin justify-content-center {
+  justify-content: center;
+  -webkit-box-pack: center;
+}
+
+//两端对齐
+@mixin justify {
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+}
+
+@mixin align-items-center {
+  align-items: center;
+  -webkit-box-align: center;
+}
+
+@mixin flex-number($val) {
+  flex: $val;
+  -webkit-box-flex: $val;
+}
 ```
 
 ### `pointer-events`
