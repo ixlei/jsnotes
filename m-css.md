@@ -46,7 +46,37 @@ element > * {
 }
 ```
 
-### `pointer-events`
+### `pointer-events` 
+* `pointer-events:auto|none`，是一个css3属性，`auto`和`width:auto`一样，当值为`none`时，表现为和鼠标事件说拜拜，这里我们可以实现按钮的禁用和移动端禁止图片长按弹出框，没错，就是长按图片弹出框让你选是否保存还是取消。 
+
+```css
+//禁止图片长按弹框
+img {
+  pointer-events: none;
+}
+```
+* 性能优化，移动端下拉或者上拉滚动时候，为了滚动更丝滑，可以在body上加上css `pointer-events: none;`，取消touch事件的捕获，提高性能。 
+* 我们都知道获取元素可以通过选择器，但是有的时候，你并不知道选择器，比如
+```html
+<div class="container">
+  <div class="item">
+    <div class="child1"></div>
+    <div class="child2"></div>
+  </div>
+  <div class="item">
+    <div class="child1"></div>
+    <div class="child2"></div>
+  </div>
+  <div class="item">
+    <div class="child1"></div>
+    <div class="child2"></div>
+  </div>
+</div>
+```
+拖着一个元素进入container元素，此时需要获取拖到了某个item上时，我们知道的唯一的信息就是此时触点的坐标，此时也许你想到可以通过(elementFromPoint)[https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementFromPoint]获取元素，但是你会发现`elementFromPoint`每次获取都是该坐标点下`z-index`最大的元素，那么还不是你拖着的元素嘛，手q群中对我的应用进行拖拽排序就遇到这样的问题。此时你可能想到设置元素的`pointer-events:none`解决。 
+```javascript
+
+```
 
 ### 高清屏下的`border-width:0.5px` 
 
@@ -55,6 +85,9 @@ element > * {
 
 ### `-webkit-touch-callout` 
 &emsp;禁止webview长按弹出框，比如禁止长按图片保存
+
+### 移动端导航栏横向滚动
+
  
 
 
