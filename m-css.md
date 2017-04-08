@@ -76,18 +76,15 @@ img {
 拖着一个元素进入container元素，此时需要获取拖到了某个item上时，我们知道的唯一的信息就是此时触点的坐标，此时也许你想到可以通过[elementFromPoint](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementFromPoint)获取元素，但是你会发现`elementFromPoint`每次获取都是该坐标点下`z-index`最大的元素，那么还不是你拖着的元素嘛，手q群中对我的应用进行拖拽排序就遇到这样的问题。此时你可能想到设置元素的`pointer-events:none`解决。 
 ```javascript
   function matches(el, selector) {
-		if (el) {
-			selector = selector.split('.');
-
-			var tag = selector.shift().toUpperCase(),
-				re = new RegExp('\\s(' + selector.join('|') + ')(?=\\s)', 'g');
-
-			return (
-				(tag === '' || el.nodeName.toUpperCase() == tag) &&
-				(!selector.length || ((' ' + el.className + ' ').match(re) || []).length == selector.length)
-			);
-		}
-
+    if(el) {
+      selector = selector.split('.');
+      var tag = selector.shift().toUpperCase(),
+          re = new RegExp('\\s(' + selector.join('|') + ')(?=\\s)', 'g');
+      return (
+        (tag === '' || el.nodeName.toUpperCase() == tag) &&
+        (!selector.length || ((' ' + el.className + ' ').match(re) || []).length == selector.length)
+      );
+    }
 		return false;
 	}
 
