@@ -85,8 +85,8 @@ img {
         (!selector.length || ((' ' + el.className + ' ').match(re) || []).length == selector.length)
       );
     }
-		return false;
-	}
+    return false;
+ }
 
   function getElementByPoint(selector, vx, vy) {
     var ele = document.elementFromPoint(vx, vy);
