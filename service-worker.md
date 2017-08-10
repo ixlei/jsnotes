@@ -5,7 +5,8 @@ Service worker增强缓存
 **Service worker**是由JavaScript编写的浏览器端代理脚本，前端发起注册时，内核会用新的进程或者线程进行**安装**和**激活**操作。成功激活后便进入**空闲等待**状态，若当前的Service worker进程／线程一直没有管辖的页面或者事件消息时便会终止（所以不能在Service worker中持久化保存数据）。当管辖页面重新打开或者事件消息时将会被重新**唤起**.  
 
 每当已安装的Service Worker有管辖页面被打开时，便会触发Service Worker脚本更新，当上次  脚本更新写入Service Worker数据库的时间戳与本次更新超过24小时，便会忽略本地网络cache的Service Worker脚本直接从网络拉取。若网络拉取的与本地有一个字节的差异都会触发Service Worker脚本的更新，更新流程与安装类似，只是在更新安装成功后不会立即进入active状态，需要等待旧版本的Service Worker进/线程终止。
- 
+![avatar](./images/service-worker.png) 
+
 ## 先决条件
 ### 浏览器支持
 浏览器支持是前提条件，Service worker现在除了Safari暗示[在未来会开发](https://trac.webkit.org/wiki/FiveYearPlanFall2015)外，Chrome自然不用说，Firefox 和 Opera均表示支持，Microsoft Edge 现在[表示公开支持](https://developer.microsoft.com/en-us/microsoft-edge/platform/status/serviceworker/)。可以在[PWA，准备好了吗？](https://ispwaready.toxicjohann.com/)和Jake Archibald 的[is Serviceworker ready ](https://jakearchibald.github.io/isserviceworkerready/)查看浏览器的支持程度。
