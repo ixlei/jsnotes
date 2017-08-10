@@ -130,5 +130,4 @@ self.addEventListener('fetch', function(event) {
 
 * 保证跨域资源服务器的response中Access-Control-Allow-Origin中包含当前的页面所在域或者为*.
 * 对于前端页面中的跨域资源的url可以附带标志位，以便Service Worker在拦截之后可以判断出是跨域请求从而重新进行组装cors请求
-## 可能的坑
 
