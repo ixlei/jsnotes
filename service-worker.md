@@ -25,8 +25,6 @@ Service worker增强缓存
 在fetch事件中，仅去匹配资源，若匹配失败，表现出来的就是前端页面对于该 资源加载失败。这里容错性比较差，适合页面资源都是静态资源的，且不能使用不影响安装的资源预缓存.
 ```javascript
 self.addEventListener('fetch', function(event) {
-  // If a match isn't found in the cache, the response
-  // will look like a connection error
   event.respondWith(caches.match(event.request));
 });
 ```
@@ -36,8 +34,6 @@ self.addEventListener('fetch', function(event) {
 ```javascript
 self.addEventListener('fetch', function(event) {
   event.respondWith(fetch(event.request));
-  // or simply don't call event.respondWith, which
-  // will result in default browser behaviour
 });
 ```
 
