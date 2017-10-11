@@ -23,6 +23,8 @@ console.log('hello javascript world!');
 * [前端性能优化](https://github.com/ixlei/jsnotes/blob/master/front_end_Performance_optimizationmd.md)
 * [Service Worker](https://github.com/ixlei/jsnotes/blob/master/service-worker.md)
 
+*[puppeteer爬虫的奇妙之旅](https://github.com/ixlei/jsnotes/issues/1)
+
 ### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
 
