@@ -27,6 +27,8 @@ console.log('hello javascript world!');
 
 * [谈起音视频，前端能做些什么](https://github.com/ixlei/jsnotes/issues/2)
 
+* [webpack详解](https://github.com/ixlei/jsnotes/issues/3)
+
 ### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
 
