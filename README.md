@@ -29,6 +29,8 @@ console.log('hello javascript world!');
 
 * [webpack详解](https://github.com/ixlei/jsnotes/issues/3)
 
+* [webpack的编译&构建](https://github.com/ixlei/jsnotes/issues/4)
+
 ### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
 
