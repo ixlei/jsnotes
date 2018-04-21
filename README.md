@@ -31,7 +31,7 @@ console.log('hello javascript world!');
 
 * [webpack的编译&构建](https://github.com/ixlei/jsnotes/issues/4)
 
-*[Rollup](https://github.com/ixlei/jsnotes/issues/5)
+* [Rollup](https://github.com/ixlei/jsnotes/issues/5)
 
 ### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
