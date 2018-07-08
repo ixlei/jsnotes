@@ -35,6 +35,9 @@ console.log('hello javascript world!');
 
 * [javaScript中的Unicode](https://github.com/ixlei/jsnotes/issues/6)
 
+* [浅谈前端中的错误处理](https://github.com/ixlei/jsnotes/issues/7)
+
+
 ### 我的校招面试经历
 * [我的校招历程](https://github.com/ixlei/jsnotes/blob/master/2017-school-interview.md)
 
